@@ -7,6 +7,7 @@ import session from 'express-session';
 import pkg from 'pg-promise';
 import dbQueries from './database.js';
 import services from './services/shoes.js';
+import api from './api/shoesApi.js';
 
 const app = express();
 
@@ -34,11 +35,15 @@ ssl: true
 
 const query= dbQueries(db);
 const service= services(query);
+const shoesApi= api(query);
 
 app.get("/", service.showAll);
-app.get("/api/shoes", service.getAll);
-app.get("/api/shoes/brand/:brandname", service.getBrand);
-app.get("/api/shoes/size/:size", service.getSize);
+
+
+app.get("/api/shoes", shoesApi.getAll);
+app.get("/api/shoes/brand/:brandname", shoesApi.getBrand);
+app.get("/api/shoes/size/:size", shoesApi.getSize);
+app.get("/api/shoes/brand/:brandname/size/:size",shoesApi.getBrandSize);
 
 const PORT= process.env.PORT||5432;
 

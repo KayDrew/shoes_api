@@ -33,7 +33,7 @@ async function  addShoes(id,color,brand,price,size,in_stock){
 async function  getAll(){
 
     try{
-            let shoes=db.manyOrNone("SELECT * FROM shoes");
+            let shoes=await db.manyOrNone("SELECT * FROM shoes");
             return shoes;
     }catch(err){
     	
@@ -45,7 +45,7 @@ async function  getAll(){
 async function  getBrand(brand){
 
     try{
-            let shoes=db.manyOrNone("SELECT * FROM shoes WHERE brand=$1",brand);
+            let shoes=await db.manyOrNone("SELECT * FROM shoes WHERE brand=$1",brand);
             return shoes;
           
     }catch(err){
@@ -58,7 +58,7 @@ async function  getBrand(brand){
 async function  getBrand(brand){
 
     try{
-            let shoes=db.manyOrNone("SELECT * FROM shoes WHERE brand=$1",brand);
+            let shoes=await db.manyOrNone("SELECT * FROM shoes WHERE brand=$1",brand);
             return shoes;
           
     }catch(err){
@@ -71,7 +71,7 @@ async function  getBrand(brand){
 async function  getSize(size){
 
     try{
-            let shoes=db.manyOrNone("SELECT * FROM shoes WHERE size=$1",size);
+            let shoes=await db.manyOrNone("SELECT * FROM shoes WHERE size=$1",size);
             return shoes;
           
     }catch(err){
@@ -80,13 +80,25 @@ async function  getSize(size){
    }
 }
 
+async function  getBrandSize(brand,size){
 
+  try{
+             let shoes= await db.manyOrNone("SELECT * FROM shoes WHERE brand=$1 AND size=$2",brand,size);
+             return shoes;
+  
+  }catch(err){
+
+           console.log(err);
+}
+
+}
 
 return{
 	addShoes,
 	getAll,
 	getBrand,
-	getSize
+	getSize,
+	getBrandSize
 //create,
 
 }
