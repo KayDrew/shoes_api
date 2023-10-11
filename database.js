@@ -1,18 +1,5 @@
 export default function dbQueries(db){
 
-/**async function create(){
-
-try{
-	
-await db.none("CREATE TABLE shoes(id INT PRIMARY KEY NOT NULL,color VARCHAR(255),brand VARCHAR(255),price INT,size INT,in_stock INT)");
-console.log("successfully  created");
-
-}catch(err){
-
-console.log(err);
-}
-
-}*/
 
 
 async function  addShoes(id,color,brand,price,size,in_stock){
@@ -83,7 +70,7 @@ async function  getSize(size){
 async function  getBrandSize(brand,size){
 
   try{
-             let shoes= await db.manyOrNone("SELECT * FROM shoes WHERE brand=$1 AND size=$2",brand,size);
+             let shoes= await db.manyOrNone("SELECT * FROM shoes WHERE brand=$1 AND size=$2",[brand,size]);
              return shoes;
   
   }catch(err){
@@ -93,13 +80,27 @@ async function  getBrandSize(brand,size){
 
 }
 
+
+async function deleteSold(id){
+
+try{
+
+await db.none("DELETE FROM shoes WHERE id=$1",id);
+console.log("deleted");
+}catch(err){
+
+console.log(err);
+}
+}
+
 return{
 	addShoes,
 	getAll,
 	getBrand,
 	getSize,
-	getBrandSize
-//create,
+	getBrandSize,
+	deleteSold
+
 
 }
 
