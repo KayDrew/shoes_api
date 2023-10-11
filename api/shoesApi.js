@@ -11,7 +11,7 @@ async function getAll(req,res){
            allShoes= await query.getAll();
            res.header("Access-Control-Allow-Origin", "*");
            res.json({status: "success",
-           data: allShoes
+           shoes: allShoes
             });
            
 
@@ -32,7 +32,7 @@ async function getBrand(req,res){
     	
             allShoes= await query.getBrand(brand);
             res.json({status: "success",
-           data: allShoes
+           shoes: allShoes
             });
             
           
@@ -54,7 +54,7 @@ async function getSize(req,res){
     	
             allShoes= await query.getSize(size);
             res.json({status: "success",
-           data: allShoes
+           shoes: allShoes
             });
             
           
@@ -75,7 +75,7 @@ async function getBrandSize(req,res){
     	
             allShoes= await query.getBrandSize(brand,size);
             res.json({status: "success",
-                             data: allShoes 
+                             shoes: allShoes 
 
           });
             
