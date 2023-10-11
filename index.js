@@ -44,6 +44,8 @@ app.get("/api/shoes", shoesApi.getAll);
 app.get("/api/shoes/brand/:brandname", shoesApi.getBrand);
 app.get("/api/shoes/size/:size", shoesApi.getSize);
 app.get("/api/shoes/brand/:brandname/size/:size",shoesApi.getBrandSize);
+app.post("/api/shoes/sold/:id", shoesApi.deleteSold);
+app.post("/api/shoes", shoesApi.addShoes);
 
 const PORT= process.env.PORT||5432;
 
