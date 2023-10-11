@@ -9,6 +9,7 @@ async function getAll(req,res){
   try{
 
            allShoes= await query.getAll();
+           res.header("Access-Control-Allow-Origin", "*");
            res.json({status: "success",
            data: allShoes
             });
