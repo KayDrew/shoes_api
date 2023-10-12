@@ -31,6 +31,7 @@ async function getBrand(req,res){
     try{
     	
             allShoes= await query.getBrand(brand);
+            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
            shoes: allShoes
             });
@@ -53,6 +54,7 @@ async function getSize(req,res){
     try{
     	
             allShoes= await query.getSize(size);
+            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
            shoes: allShoes
             });
@@ -74,6 +76,7 @@ async function getBrandSize(req,res){
     try{
     	
             allShoes= await query.getBrandSize(brand,size);
+            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
                              shoes: allShoes 
 
@@ -98,6 +101,7 @@ async function getBrandSizeColor(req,res){
     try{
     	
             allShoes= await query.getBrandSizeColor(brand,size,color);
+            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
                              shoes: allShoes 
 
@@ -121,6 +125,7 @@ async function getBrandColor(req,res){
     try{
     	
             allShoes= await query.getBrandColor(brand,color);
+            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
                              shoes: allShoes 
 
@@ -142,6 +147,7 @@ async function getColor(req,res){
     try{
 
         allShoes= await query.getColor(color);
+        res.header("Access-Control-Allow-Origin", "*");
         res.json({status: "success",
                          shoes: allShoes 
 
@@ -163,6 +169,7 @@ async function getSizeColor(req,res){
     try{
     	
             allShoes= await query.getSizeColor(size,color);
+            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
            shoes: allShoes
             });
@@ -183,6 +190,7 @@ let id=req.params.id;
 try{
 	
 await query.deleteSold(id);
+res.header("Access-Control-Allow-Origin", "*");
 res.json({status:"success"
 });
 
@@ -208,7 +216,10 @@ async function addShoes(req,res){
 
    try{
 	
-            await addShoes(id,color,brand,price,size,in_stock)
+            await addShoes(id,color,brand,price,size,in_stock);
+            res.header("Access-Control-Allow-Origin", "*");
+            res.json({status:"success"
+});
 
     }catch(err){
                          res.json({ status: "error",
