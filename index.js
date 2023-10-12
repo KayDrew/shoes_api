@@ -43,9 +43,14 @@ app.get("/", service.showAll);
 app.get("/api/shoes", shoesApi.getAll);
 app.get("/api/shoes/brand/:brandname", shoesApi.getBrand);
 app.get("/api/shoes/size/:size", shoesApi.getSize);
+app.get("/api/shoes/color/:color",shoesApi.getColor);
+app.get("/api/shoes/brand/:brandname/size/:size/color/:color",shoesApi.getBrandSizeColor);
 app.get("/api/shoes/brand/:brandname/size/:size",shoesApi.getBrandSize);
+app.get("/api/shoes/brand/:brandname/color/:color",shoesApi.getBrandColor);
+app.get("/api/shoes/size/:size/color/:color",shoesApi.getSizeColor);
 app.post("/api/shoes/sold/:id", shoesApi.deleteSold);
 app.post("/api/shoes", shoesApi.addShoes);
+
 
 const PORT= process.env.PORT||5432;
 

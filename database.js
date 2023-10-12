@@ -42,10 +42,10 @@ async function  getBrand(brand){
 }
 
 
-async function  getBrand(brand){
+async function  getBrandColor(brand,color){
 
     try{
-            let shoes=await db.manyOrNone("SELECT * FROM shoes WHERE brand=$1",brand);
+            let shoes=await db.manyOrNone("SELECT * FROM shoes WHERE brand=$1 AND color=$2",[brand,color]);
             return shoes;
           
     }catch(err){
@@ -81,6 +81,46 @@ async function  getBrandSize(brand,size){
 }
 
 
+async function  getBrandSizeColor(brand,size,color){
+
+        try{
+                   let shoes= await db.manyOrNone("SELECT * FROM shoes WHERE brand=$1 AND size=$2 AND color=$3",[brand,size,color]);
+                   return shoes;
+        
+        }catch(err){
+      
+                 console.log(err);
+      }
+      
+      }
+
+
+async function  getSizeColor(size,color){
+
+        try{
+                let shoes=await db.manyOrNone("SELECT * FROM shoes WHERE size=$1 AND color=$2",[size,color]);
+                return shoes;
+              
+        }catch(err){
+                
+               console.log(err);
+       }
+    }
+
+
+async function getColor(color){
+        try{
+                let shoes=await db.manyOrNone("SELECT * FROM shoes WHERE color=$1",color);
+                return shoes;
+              
+        }catch(err){
+                
+               console.log(err);
+       }
+}
+
+
+
 async function deleteSold(id){
 
 try{
@@ -99,7 +139,11 @@ return{
 	getBrand,
 	getSize,
 	getBrandSize,
-	deleteSold
+	deleteSold,
+        getColor,
+        getBrandColor,
+        getSizeColor,
+        getBrandSizeColor
 
 
 }

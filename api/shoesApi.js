@@ -88,6 +88,94 @@ async function getBrandSize(req,res){
 
 }
 
+
+async function getBrandSizeColor(req,res){
+
+    let size= req.params.size;
+    let brand= req.params.brandname;
+    let color=req.params.color;
+
+    try{
+    	
+            allShoes= await query.getBrandSizeColor(brand,size,color);
+            res.json({status: "success",
+                             shoes: allShoes 
+
+          });
+            
+          
+      }catch(err){
+             res.json({ status: "error",
+                            error:  err.stack
+          });
+      }
+
+}
+
+async function getBrandColor(req,res){
+
+   
+    let brand= req.params.brandname;
+    let color=req.params.color;
+
+    try{
+    	
+            allShoes= await query.getBrandColor(brand,color);
+            res.json({status: "success",
+                             shoes: allShoes 
+
+          });
+            
+          
+      }catch(err){
+             res.json({ status: "error",
+                            error:  err.stack
+          });
+      }
+
+}
+
+async function getColor(req,res){
+
+    let color=req.params.color;
+
+    try{
+
+        allShoes= await query.getColor(color);
+        res.json({status: "success",
+                         shoes: allShoes 
+
+      });   
+
+    }catch(err){
+        res.json({ status: "error",
+        error:  err.stack
+});
+    }
+}
+
+
+
+async function getSizeColor(req,res){
+
+    let size= req.params.size;
+    let color=req.params.color;
+    try{
+    	
+            allShoes= await query.getSizeColor(size,color);
+            res.json({status: "success",
+           shoes: allShoes
+            });
+            
+          
+      }catch(err){
+             res.json({ status: "error",
+                            error:  err.stack
+          });
+      }
+
+}
+
 async function deleteSold(req,res){
 
 let id=req.params.id;
@@ -106,6 +194,7 @@ res.json({status:"success"
 }
 
 }
+
 
 
 async function addShoes(req,res){
@@ -135,7 +224,11 @@ getBrand,
 getSize,
 getBrandSize,
 deleteSold,
-addShoes
+addShoes,
+getColor,
+getBrandColor,
+getBrandSizeColor,
+getSizeColor
 
 }
 
