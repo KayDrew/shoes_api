@@ -9,14 +9,12 @@ async function getAll(req,res){
   try{
 
            allShoes= await query.getAll();
-           res.header("Access-Control-Allow-Origin", "*");
            res.json({status: "success",
            shoes: allShoes
             });
            
 
    }catch(err){
-   	res.header("Access-Control-Allow-Origin", "*");
 	  
 		  res.json({ status: "error",
                             error:  err.stack
@@ -32,14 +30,12 @@ async function getBrand(req,res){
     try{
     	
             allShoes= await query.getBrand(brand);
-            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
            shoes: allShoes
             });
             
           
       }catch(err){
-             res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });
@@ -55,14 +51,12 @@ async function getSize(req,res){
     try{
     	
             allShoes= await query.getSize(size);
-            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
            shoes: allShoes
             });
             
           
       }catch(err){
-	    res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });
@@ -78,7 +72,6 @@ async function getBrandSize(req,res){
     try{
     	
             allShoes= await query.getBrandSize(brand,size);
-            res.header("Access-Control-Allow-Origin", "*");
             res.json({status: "success",
                              shoes: allShoes 
 
@@ -87,7 +80,6 @@ async function getBrandSize(req,res){
           
       }catch(err){
 	    
-            res.header("Access-Control-Allow-Origin", "*");
 	    res.json({ status: "error",
                             error:  err.stack
           });
@@ -105,7 +97,7 @@ async function getBrandSizeColor(req,res){
     try{
     	
             allShoes= await query.getBrandSizeColor(brand,size,color);
-            res.header("Access-Control-Allow-Origin", "*");
+            
             res.json({status: "success",
                              shoes: allShoes 
 
@@ -113,7 +105,6 @@ async function getBrandSizeColor(req,res){
             
           
       }catch(err){
-	    res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });
@@ -130,7 +121,7 @@ async function getBrandColor(req,res){
     try{
     	
             allShoes= await query.getBrandColor(brand,color);
-            res.header("Access-Control-Allow-Origin", "*");
+      
             res.json({status: "success",
                              shoes: allShoes 
 
@@ -138,7 +129,6 @@ async function getBrandColor(req,res){
             
           
       }catch(err){
-	    res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });

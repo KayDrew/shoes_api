@@ -8,6 +8,7 @@ import pkg from 'pg-promise';
 import dbQueries from './database.js';
 import services from './services/shoes.js';
 import api from './api/shoesApi.js';
+import cors from 'cors';
 
 const app = express();
 
@@ -18,7 +19,9 @@ app.set('views', './views');
 app.use(express.static('public'));
 app.use(express.static('images'))
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.json());
+app.use(cors());
 app.use(express.json());
 app.use(session({
   secret: "no secret",
