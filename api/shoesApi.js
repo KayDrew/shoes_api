@@ -214,11 +214,11 @@ res.header("Access-Control-Allow-Origin", "*");
 
 async function addShoes(req,res){
 
-       const {color,brand, price, size, in_stock}=req.body;
+       const {color,brand, price, size, in_stock,image}=req.body;
 	       
 	      try{
 	
-            await addShoes(id,color,brand,price,size,in_stock);
+            await addShoes(id,color,brand,price,size,in_stock,image);
             res.header("Access-Control-Allow-Origin", "*");
             res.json({status:"success"
 });
