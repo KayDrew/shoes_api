@@ -203,7 +203,7 @@ async function addShoes(req,res){
 	       
 	      try{
 	
-            await addShoes(id,color,brand,price,size,in_stock,image);
+            await addShoes(color,brand,price,size,in_stock,image);
            
 			      res.json({status:"success",
                   message:"added shoes"
