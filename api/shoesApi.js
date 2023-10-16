@@ -231,8 +231,8 @@ async function addShoes(req,res){
     }catch(err){
                          
 	   res.header("Access-Control-Allow-Origin", "*");
-	         ({ status: "error",
-                            error:  err.stack
+         res.json({ status: "error",
+                  error:  err.stack
           });
     }
  }
