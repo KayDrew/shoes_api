@@ -2,11 +2,11 @@ export default function dbQueries(db){
 
 
 
-async function  addShoes(id,color,brand,price,size,in_stock){
+async function  addShoes(id,color,brand,price,size,in_stock,image){
 
     try{
 
-                await db.none("INSERT INTO shoes (id,color,brand,price,size,in_stock) VALUES ($1,$2,$3,$4,$5,$6)",[id,color,brand,price,size,in_stock]);
+                await db.none("INSERT INTO shoes (id,color,brand,price,size,in_stock,image) VALUES ($1,$2,$3,$4,$5,$6)",[id,color,brand,price,size,in_stock,image]);
 
                 console.log("successfully  inserted");
      }catch(err){
