@@ -16,7 +16,7 @@ async function getAll(req,res){
            
 
    }catch(err){
-   	
+   	res.header("Access-Control-Allow-Origin", "*");
           res.json({ status: "error",
                             error:  err.stack
           });
@@ -38,7 +38,7 @@ async function getBrand(req,res){
             
           
       }catch(err){
-             
+             res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });
@@ -61,6 +61,7 @@ async function getSize(req,res){
             
           
       }catch(err){
+	    res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });
@@ -84,7 +85,9 @@ async function getBrandSize(req,res){
             
           
       }catch(err){
-             res.json({ status: "error",
+	    
+            res.header("Access-Control-Allow-Origin", "*");
+	    res.json({ status: "error",
                             error:  err.stack
           });
       }
@@ -109,6 +112,7 @@ async function getBrandSizeColor(req,res){
             
           
       }catch(err){
+	    res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });
@@ -133,6 +137,7 @@ async function getBrandColor(req,res){
             
           
       }catch(err){
+	    res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });
@@ -154,6 +159,7 @@ async function getColor(req,res){
       });   
 
     }catch(err){
+	  res.header("Access-Control-Allow-Origin", "*");  
         res.json({ status: "error",
         error:  err.stack
 });
@@ -176,6 +182,7 @@ async function getSizeColor(req,res){
             
           
       }catch(err){
+	    res.header("Access-Control-Allow-Origin", "*");
              res.json({ status: "error",
                             error:  err.stack
           });
@@ -195,7 +202,7 @@ res.json({status:"success"
 });
 
 }catch(err){
-
+res.header("Access-Control-Allow-Origin", "*");
     res.json({ status: "error",
                             error:  err.stack
           });
@@ -222,7 +229,9 @@ async function addShoes(req,res){
 });
 
     }catch(err){
-                         res.json({ status: "error",
+                         
+	   res.header("Access-Control-Allow-Origin", "*");
+	         ({ status: "error",
                             error:  err.stack
           });
     }
