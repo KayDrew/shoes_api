@@ -192,10 +192,10 @@ async function getSizeColor(req,res){
 
 async function deleteSold(req,res){
 
-let id=req.params.id;
+
 
 try{
-	
+const {id}=req.body;
 await query.deleteSold(id);
 res.header("Access-Control-Allow-Origin", "*");
 res.json({status:"success"
@@ -214,14 +214,9 @@ res.header("Access-Control-Allow-Origin", "*");
 
 async function addShoes(req,res){
 
-       let id=0;
-       let color="";
-       let brand="";
-       let price=0;
-       let size=0;
-       let in_stock=0;
-
-   try{
+       const {color,brand, price, size, in_stock}=req.body;
+	       
+	      try{
 	
             await addShoes(id,color,brand,price,size,in_stock);
             res.header("Access-Control-Allow-Origin", "*");
