@@ -17,7 +17,8 @@ async function getAll(req,res){
 
    }catch(err){
    	res.header("Access-Control-Allow-Origin", "*");
-          res.json({ status: "error",
+	  
+		  res.json({ status: "error",
                             error:  err.stack
           });
 
@@ -203,6 +204,7 @@ res.json({status:"success"
 
 }catch(err){
 res.header("Access-Control-Allow-Origin", "*");
+res.header("Access-Control-Allow-Methods","*");
     res.json({ status: "error",
                             error:  err.stack
           });
@@ -220,12 +222,16 @@ async function addShoes(req,res){
 	
             await addShoes(id,color,brand,price,size,in_stock,image);
             res.header("Access-Control-Allow-Origin", "*");
-            res.json({status:"success"
+	    res.header("Access-Control-Allow-Methods","*");  
+	    res.header("Access-Control-Allow-Headers","*");
+			      res.json({status:"success"
 });
 
     }catch(err){
                          
 	   res.header("Access-Control-Allow-Origin", "*");
+	 res.header("Access-Control-Allow-Methods","*");
+	 res.header("Access-Control-Allow-Headers","*");
          res.json({ status: "error",
                   error:  err.stack
           });
