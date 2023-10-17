@@ -1,6 +1,43 @@
 export default function dbQueries(db){
 
 
+        async function createCart(username){
+
+                try{
+   
+                   await db.none("INSERT INTO cart(cart_code,status,username) VALUES(DEFAULT,$1,$2)",['open',username]);
+   
+                   console.log('insterted')
+   
+                }  catch(err){
+                   console.log(err);
+                } 
+           }
+
+
+           async function getCartCode(username){
+
+        try{
+          let result= await db.oneOrNone("SELECT cart_code FROM cart WHERE username=$1",username);
+          console.log(result.cart_code);
+          return result.cart_code;
+        }catch(err){
+                console.log(err);
+        }
+           }
+
+
+           async function allCarts(){
+
+                try{
+                  let result= await db.manyOrNone("SELECT * FROM cart");
+                  console.log(result);
+                  return result;
+                }catch(err){
+                        console.log(err);
+                }
+                   }
+
 
 async function  addShoes(id,color,brand,price,size,in_stock,image){
 
@@ -143,7 +180,10 @@ return{
         getColor,
         getBrandColor,
         getSizeColor,
-        getBrandSizeColor
+        getBrandSizeColor,
+        createCart,
+        getCartCode,
+        allCarts
 
 
 }

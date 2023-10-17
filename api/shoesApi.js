@@ -217,6 +217,32 @@ async function addShoes(req,res){
     }
  }
 
+
+ 
+ async function createCart(req,res){
+
+    let username=req.query.username? req.query.username:'';
+
+    try{
+
+        
+    let cart_code=await query.getCartCode(username);
+
+    if(!cart_code){
+   await query.createCart(username);
+   cart_code=await query.getCartCode(username);
+    }
+
+
+    res.json({cart_code});
+
+    }catch(err){
+        res.json({ status: "error",
+        error:  err.stack
+});
+    }
+ }
+
 return{
 
 getAll,
@@ -228,7 +254,8 @@ addShoes,
 getColor,
 getBrandColor,
 getBrandSizeColor,
-getSizeColor
+getSizeColor,
+createCart
 
 }
 
