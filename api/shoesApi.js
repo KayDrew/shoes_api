@@ -203,7 +203,6 @@ async function addShoes(req,res){
 	       
 	      try{
 	
-            res.header("Access-Control-Allow-Origin","*");
             await addShoes(color,brand,price,size,in_stock,image);
            
 			      res.json({status:"success",
@@ -211,8 +210,7 @@ async function addShoes(req,res){
 });
 
     }catch(err){
-                   
-            res.header("Access-Control-Allow-Origin","*");      
+                         
          res.json({ status: "error",
                   error:  err.stack
           });

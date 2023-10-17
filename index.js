@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import axios from 'axios';
-import fs from 'fs';
+import bodyParser from 'body-parser';
 import { engine } from 'express-handlebars';
 import flash from 'express-flash';
 import session from 'express-session';
@@ -11,18 +10,18 @@ import services from './services/shoes.js';
 import api from './api/shoesApi.js';
 import cors from 'cors';
 
-const app = express();;
+const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-app.use(axios);
-app.use(fs);
 app.use(express.static('public'));
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 app.use(express.static('public'));
 app.use(express.static('images'))
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(bodyParser.json());
 app.use(cors());
 
 app.use(session({
