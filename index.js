@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import axios from 'axios';
+import fs from 'fs';
 import { engine } from 'express-handlebars';
 import flash from 'express-flash';
 import session from 'express-session';
@@ -14,6 +15,7 @@ const app = express();;
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(axios);
+app.use(fs);
 app.use(express.static('public'));
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
