@@ -10,12 +10,9 @@ import services from './services/shoes.js';
 import api from './api/shoesApi.js';
 import cors from 'cors';
 
-const app = express();
-app.use(bodyParser.json());
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.urlencoded({extended:false}));
+const app = express();;
 app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 app.use(express.static('public'));
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
