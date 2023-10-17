@@ -5,6 +5,8 @@ import { engine } from 'express-handlebars';
 import flash from 'express-flash';
 import session from 'express-session';
 import pkg from 'pg-promise';
+import axios from 'axios';
+import fs from 'fs';
 import dbQueries from './database.js';
 import services from './services/shoes.js';
 import api from './api/shoesApi.js';
