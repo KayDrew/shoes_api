@@ -31,7 +31,7 @@ export default function dbQueries(db){
 
                 try{
                   let result= await db.manyOrNone("SELECT * FROM cart");
-                  console.log(result);
+                  
                   return result;
                 }catch(err){
                         console.log(err);
@@ -45,7 +45,7 @@ async function  addShoes(id,color,brand,price,size,in_stock,image){
 
                 await db.none("INSERT INTO shoes (id,color,brand,price,size,in_stock,image) VALUES ($1,$2,$3,$4,$5,$6)",[id,color,brand,price,size,in_stock,image]);
 
-                console.log("successfully  inserted");
+                
 	    return "success";
          }catch(err){
 	
