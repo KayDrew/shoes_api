@@ -209,9 +209,9 @@ async function addShoes(req,res,next){
 	
 		    const {color,brand, price, size, in_stock,image}=req.body;
 	       
-            await query.addShoes(color,brand,price,size,in_stock,image);
+           let result= await query.addShoes(color,brand,price,size,in_stock,image);
 		              
-			      res.json({status:"success",
+			      res.json({status:result,
                   message:image
 });
 		      
