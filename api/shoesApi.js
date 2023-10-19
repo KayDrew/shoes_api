@@ -212,7 +212,7 @@ async function addShoes(req,res,next){
             await query.addShoes(color,brand,price,size,in_stock,image);
 		              
 			      res.json({status:"success",
-                  message:color
+                  message:image
 });
 		      
     
