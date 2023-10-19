@@ -197,7 +197,7 @@ res.json({status:"success"
 
 
 
-async function addShoes(req,res,next){
+async function addShoes(req,res){
 
 	
 
@@ -208,7 +208,7 @@ async function addShoes(req,res,next){
 
     
             await addShoes(color,brand,price,size,in_stock,image);
-           
+           res.writeHead(200, { "Content-Type": "application/json" });
 			      res.json({status:"success",
                   message:"added shoes"
 });
