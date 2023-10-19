@@ -43,7 +43,7 @@ async function  addShoes(color,brand,price,size,in_stock,image){
 
     try{
 
-                await db.none("INSERT INTO shoes (id,color,brand,price,size,in_stock,image) VALUES (DEFAULT,$1,$2,$3,$4,$5)",[color,brand,price,size,in_stock,image]);
+                await db.none("INSERT INTO shoes (id,color,brand,price,size,in_stock,image) VALUES (DEFAULT,$1,$2,$3,$4,$5,$6)",[color,brand,price,size,in_stock,image]);
 
                 
 	    return "Successfully  added new stock",
