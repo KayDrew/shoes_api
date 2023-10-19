@@ -201,14 +201,14 @@ async function addShoes(req,res){
 
 	
 
-
+res.writeHead(200, { "Content-Type": "application/json" });
        const {color,brand, price, size, in_stock,image}=req.body;
 	       
 	      try{
 
     
             await addShoes(color,brand,price,size,in_stock,image);
-           res.writeHead(200, { "Content-Type": "application/json" });
+           
 			      res.json({status:"success",
                   message:"added shoes"
 });
