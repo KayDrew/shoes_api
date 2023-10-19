@@ -201,7 +201,7 @@ async function addShoes(req,res){
 
 	
 
-res.writeHead(200,{ "Content-Type": "application/json" });
+res.writeHead({ "Content-Type": "application/json" });
        const {color,brand, price, size, in_stock,image}=req.body;
 	       
 	      try{
