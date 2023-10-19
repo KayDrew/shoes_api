@@ -197,17 +197,17 @@ res.json({status:"success"
 
 
 
-async function addShoes(req,res){
+async function addShoes(req,res,next){
 
 	
 
-res.writeHead({ "Content-Type": "application/json" });
-	
-		    const {color,brand, price, size, in_stock,image}=req.body;
-	       res.json({color:color});
+
 	      try{
 
-    
+    res.writeHead({ "Content-Type": "application/json" });
+	
+		    const {color,brand, price, size, in_stock,image}=req.body;
+	       
             await query.addShoes(color,brand,price,size,in_stock,image);
            
 			      res.json({status:"success",
