@@ -201,7 +201,7 @@ async function addShoes(req,res,next){
 
 	
 
-    res.writeHead(200,{ "Content-Type": "application/json" });
+
 
 	      try{
 
