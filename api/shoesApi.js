@@ -199,6 +199,7 @@ res.json({status:"success"
 
 async function addShoes(req,res,next){
 
+	res.setHeader("Content-Type", "application/json");
        const {color,brand, price, size, in_stock,image}=req.body;
 	       
 	      try{
@@ -210,7 +211,7 @@ async function addShoes(req,res,next){
                   message:"added shoes"
 });
 		      res.setHeader("Content-Type", "application/json");
-    next();
+    
 
 
     }catch(err){
