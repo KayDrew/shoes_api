@@ -19,6 +19,7 @@ app.set('view engine', 'handlebars');
 app.set('views', './views');
 app.use(express.static('public'));
 app.use(express.static('images'));
+app.use(import('connect').bodyParser())
 app.use(cors());
 
 app.use(session({
