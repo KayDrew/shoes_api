@@ -12,15 +12,14 @@ import cors from 'cors';
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:false}));
 app.use(express.static('public'));
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 app.use(express.static('public'));
 app.use(express.static('images'));
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json({ type: 'application/*+json' }));
+
 
 app.use(cors());
 
