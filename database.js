@@ -50,7 +50,7 @@ async function  addShoes(id,color,brand,price,size,in_stock,image){
          }catch(err){
 	
                  console.log(err);
-	    return("failure");
+	    return err;
 
       }
 }
