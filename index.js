@@ -19,6 +19,8 @@ app.set('view engine', 'handlebars');
 app.set('views', './views');
 app.use(express.static('public'));
 app.use(express.static('images'));
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json({ type: 'application/*+json' }));
 
 app.use(cors());
 
