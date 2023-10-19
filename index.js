@@ -51,7 +51,7 @@ app.get("/api/shoes/brand/:brandname/size/:size",shoesApi.getBrandSize);
 app.get("/api/shoes/brand/:brandname/color/:color",shoesApi.getBrandColor);
 app.get("/api/shoes/size/:size/color/:color",shoesApi.getSizeColor);
 app.post("/api/shoes/sold/:id", shoesApi.deleteSold);
-app.post("/api/shoes",express.json(), shoesApi.addShoes);
+app.post("/api/shoes", shoesApi.addShoes);
 app.get('/api/shoes/create',shoesApi.createCart);
 
 
