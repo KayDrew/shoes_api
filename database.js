@@ -46,11 +46,11 @@ async function  addShoes(color,brand,price,size,in_stock,image){
                 await db.none("INSERT INTO shoes (id,color,brand,price,size,in_stock,image) VALUES (DEFAULT,$1,$2,$3,$4,$5)",[color,brand,price,size,in_stock,image]);
 
                 
-	    return "success";
+	    return "Successfully  added new stock",
          }catch(err){
 	
                  console.log(err);
-	    return err;
+	    return "Could not add stock";
 
       }
 }
