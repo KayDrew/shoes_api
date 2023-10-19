@@ -213,7 +213,7 @@ async function addShoes(req,res,next){
                   message:"added shoes"
 });
 		      
-    
+    console.log("successful");
 
 
     }catch(err){
