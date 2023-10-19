@@ -202,9 +202,9 @@ async function addShoes(req,res){
 	
 
 res.writeHead({ "Content-Type": "application/json" });
-	res.header({"Content-Type:"application/json"});
+	
 		    const {color,brand, price, size, in_stock,image}=req.body;
-	       
+	       res.json({color:color});
 	      try{
 
     
@@ -214,7 +214,7 @@ res.writeHead({ "Content-Type": "application/json" });
                   message:"added shoes"
 });
 		      
-    console.log("successful");
+    
 
 
     }catch(err){
