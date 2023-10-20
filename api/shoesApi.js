@@ -209,21 +209,21 @@ async function addShoes(req,res,next){
 	
 		    const {color,brand, price, size, in_stock,image}=req.body;
 	       
-           let result= await query.addShoes(color,brand,price,size,in_stock,image);
+                   let result= await query.addShoes(color,brand,price,size,in_stock,image);
 		              
-			      res.json({status:"error",
-                  message:result 
-});
+			      res.json({status:"success",
+                                     message:result 
+                               });
 		      
     
 
 
-    }catch(err){
+             }catch(err){
                          
-         res.json({ status: "error",
+                   res.json({ status: "error",
                   error:  err.stack
-          });
-    }
+                    });
+             }
  }
 
 
