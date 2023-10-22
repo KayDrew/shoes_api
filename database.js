@@ -187,6 +187,17 @@ console.log(err);
 }
 }
 
+async function clearCart(){
+        try{
+
+                await db.none("DELETE FROM cart_items");
+                console.log("deleted");
+                }catch(err){
+                
+                console.log(err);
+                }      
+}
+
 return{
 	addShoes,
 	getAll,
@@ -201,7 +212,8 @@ return{
         createCart,
         getCartCode,
         allCarts,
-        addToCart
+        addToCart,
+        clearCart
 
 
 }

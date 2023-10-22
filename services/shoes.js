@@ -55,11 +55,17 @@ async function getSize(req,res,next){
 
 }
 
+async function clearCart(){
+
+       await query.clearCart();
+    }
+
 return{
 showAll,
 getAll,
 getBrand,
-getSize
+getSize,
+clearCart
 
 }
 

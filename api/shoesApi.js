@@ -252,6 +252,11 @@ async function addShoes(req,res,next){
     }
  }
 
+
+ async function clearCart(){
+
+    await query.clearCart();
+ }
  
  async function addToCart(req,res){
 
@@ -262,7 +267,7 @@ try{
    let result= await query.addToCart(cart_code,shoesId,qty);
 
    res.json({status:"success",
-   result:result});
+   items:result});
 
 
 }catch(err){
@@ -289,7 +294,8 @@ getBrandColor,
 getBrandSizeColor,
 getSizeColor,
 createCart,
-addToCart
+addToCart,
+clearCart
 
 }
 
