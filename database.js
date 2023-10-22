@@ -26,6 +26,19 @@ export default function dbQueries(db){
         }
            }
 
+           async function addToCart(cart_code,shoesId,qty){
+          
+                try{
+                      await db.none("INSERT INTO cart_items(cart_code,id,qty) VALUES($1,$2,$3)",[cart_code,shoesId,qty]);
+        
+                        return "Successfully inserted into cart";
+        
+                }catch(err){
+        
+                        console.log(err);
+                        return err;
+                }
+                  }
 
            async function allCarts(){
 
@@ -185,7 +198,8 @@ return{
         getBrandSizeColor,
         createCart,
         getCartCode,
-        allCarts
+        allCarts,
+        addToCart
 
 
 }

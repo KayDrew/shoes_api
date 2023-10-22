@@ -252,6 +252,30 @@ async function addShoes(req,res,next){
     }
  }
 
+ 
+ async function addToCart(req,res){
+
+    const {cart_code,shoesId,qty}= req.body;
+
+try{
+
+   let result= await query.addToCart(cart_code,shoesId,qty);
+
+   res.json({status:"success",
+   message:result});
+
+
+}catch(err){
+
+    res.json({status:"error",
+    error:err.stack,
+    message:result});
+
+ }
+
+}
+
+
 return{
 
 getAll,
@@ -264,7 +288,8 @@ getColor,
 getBrandColor,
 getBrandSizeColor,
 getSizeColor,
-createCart
+createCart,
+addToCart
 
 }
 
