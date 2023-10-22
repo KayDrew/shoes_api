@@ -260,8 +260,9 @@ async function addShoes(req,res,next){
  
  async function addToCart(req,res){
 
-    const {cart_code,shoesId,qty}= req.body;
+    const {cart_code,shoesId}= req.body;
 
+    console.log(shoesId);
 try{
 
     let result=[];
@@ -270,7 +271,7 @@ try{
     if(item.length<1){
 
 
-    result= await query.addToCart(cart_code,shoesId,qty);
+    result= await query.addToCart(cart_code,shoesId);
 
     }
 
