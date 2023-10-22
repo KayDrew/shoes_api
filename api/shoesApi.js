@@ -261,8 +261,8 @@ try{
 
    let result= await query.addToCart(cart_code,shoesId,qty);
 
-   res.json({status:"success",
-   message:result});
+   res.json({
+   result});
 
 
 }catch(err){
