@@ -195,14 +195,29 @@ res.json({status:"success"
 
 }
 
+async function getCartItems(req,res){
+
+
+
+    try{
+  let items=  await query.getCartItems();
+
+    res.json({status:"success",items:items
+
+    });
+    
+    }catch(err){
+        res.json({ status: "error",
+                                error:  err.stack
+              });
+    }
+    
+    }
 
 
 async function addShoes(req,res,next){
 
 	
-
-
-
 	      try{
 
 		      
@@ -311,7 +326,8 @@ getBrandSizeColor,
 getSizeColor,
 createCart,
 addToCart,
-clearCart
+clearCart,
+getCartItems
 
 }
 
