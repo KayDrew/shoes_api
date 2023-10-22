@@ -276,10 +276,10 @@ try{
 
    }
 
-  //  else{
+  else{
         
-       // result=await query.updateCart(shoesId);
-  //  }
+        result=await query.updateCart(shoesId);
+   }
 
    res.json({status:"success",
    items:result,
