@@ -268,7 +268,7 @@ try{
 
     let result=[];
     let item= await query.getItem(shoesId);
-    console.log(item);
+    
    // if(item.length<1){
 
 
@@ -282,7 +282,8 @@ try{
   //  }
 
    res.json({status:"success",
-   items:result});
+   items:result,
+item:item});
 
 
 }catch(err){
