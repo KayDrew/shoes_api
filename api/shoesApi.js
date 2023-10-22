@@ -269,12 +269,12 @@ try{
     let result=[];
     let item= await query.getItem(shoesId);
     
-   // if(item.length<1){
+    if(item.length<1){
 
 
     result= await query.addToCart(cart_code,shoesId,qty);
 
-   // }
+   }
 
   //  else{
         
