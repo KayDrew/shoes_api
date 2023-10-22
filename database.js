@@ -210,6 +210,7 @@ async function updateCart(shoesId){
                 if(!qty){
                         qty=0;
                 }
+                  
 
                 qty++;
 
@@ -217,9 +218,11 @@ async function updateCart(shoesId){
 
                 console.log("updated");
 
-                let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_code=$1",shoesId);
-        
+                let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_items.id=$1",shoesId);
+        console.log(result)
                   return result;
+                
+
                 }catch(err){
                 
                 console.log(err);
