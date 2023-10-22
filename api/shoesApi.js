@@ -260,25 +260,26 @@ async function addShoes(req,res,next){
  
  async function addToCart(req,res){
 
-    const {cart_code,shoesId}= req.body;
+    const {cart_code,shoesId,qty}= req.body;
 
     console.log(shoesId);
+    console.log(qty);
 try{
 
     let result=[];
     let item= await query.getItem(shoesId);
+    console.log(item);
+   // if(item.length<1){
 
-    if(item.length<1){
 
+    result= await query.addToCart(cart_code,shoesId,qty);
 
-    result= await query.addToCart(cart_code,shoesId);
+   // }
 
-    }
-
-    else{
+  //  else{
         
-        result=await query.updateCart(shoesId);
-    }
+       // result=await query.updateCart(shoesId);
+  //  }
 
    res.json({status:"success",
    items:result});

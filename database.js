@@ -205,7 +205,7 @@ async function updateCart(shoesId){
 
                 let quantity= await db.oneOrNone("SELECT qty FROM cart_items WHERE id=$1",shoesId);
                let qty=quantity.qty;
-               console.log(qty);
+               
 
                 if(!qty){
                         qty=0;
