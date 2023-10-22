@@ -278,7 +278,7 @@ try{
 
   else{
         
-        result=await query.updateCart(shoesId);
+        result=await query.updateCart(shoesId,cart_code);
    }
 
    res.json({status:"success",
