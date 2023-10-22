@@ -6,8 +6,7 @@ export default function dbQueries(db){
                 try{
    
                    await db.none("INSERT INTO cart(cart_code,status,username) VALUES(DEFAULT,$1,$2)",['open',username]);
-   
-                   console.log('insterted')
+
    
                 }  catch(err){
                    console.log(err);
@@ -18,8 +17,9 @@ export default function dbQueries(db){
            async function getCartCode(username){
 
         try{
+
           let result= await db.oneOrNone("SELECT cart_code FROM cart WHERE username=$1",username);
-          console.log(result.cart_code);
+         
           return result.cart_code;
         }catch(err){
                 console.log(err);
@@ -30,8 +30,10 @@ export default function dbQueries(db){
           
                 try{
                       await db.none("INSERT INTO cart_items(cart_code,id,qty) VALUES($1,$2,$3)",[cart_code,shoesId,qty]);
-        
-                        return "Successfully inserted into cart";
+
+                      let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image, cart_items.qty FROM cart_items JOIN shoes on cart_iems.id=shoes.id");
+        s
+                        return result;
         
                 }catch(err){
         
