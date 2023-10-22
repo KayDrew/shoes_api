@@ -198,6 +198,32 @@ async function clearCart(){
                 }      
 }
 
+
+async function updateCart(qty,shoesId){
+
+        try{
+
+                await db.none("UPDATE cart_items SET qty=$1 WHERE id=$2",[qty,shoesId]);
+                console.log("updated");
+                }catch(err){
+                
+                console.log(err);
+                } 
+}
+
+
+async function getItem(shoesId){
+        try{
+                let shoes=await db.manyOrNone("SELECT * FROM cart_items WHERE id=$1",shoesId);
+                return shoes;
+              
+        }catch(err){
+                
+               console.log(err);
+       }
+
+}
+
 return{
 	addShoes,
 	getAll,
@@ -213,7 +239,9 @@ return{
         getCartCode,
         allCarts,
         addToCart,
-        clearCart
+        clearCart,
+        updateCart,
+        getItem
 
 
 }

@@ -264,7 +264,20 @@ async function addShoes(req,res,next){
 
 try{
 
-   let result= await query.addToCart(cart_code,shoesId,qty);
+    let result=[];
+    let item= await query.getItem(shoesId);
+
+    if(item.length<1){
+
+
+    result= await query.addToCart(cart_code,shoesId,qty);
+
+    }
+
+    else{
+        
+        result=await query.updateCart(shoesId);
+    }
 
    res.json({status:"success",
    items:result});
