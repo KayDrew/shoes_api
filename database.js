@@ -191,6 +191,8 @@ async function pay(){
         try{
 
                 await db.none("DELETE FROM cart_items");
+                
+                await db.none("DELETE FROM cart");
 
                 return "Payment successful!";
                 }catch(err){
