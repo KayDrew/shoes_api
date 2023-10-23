@@ -184,6 +184,7 @@ async function deleteSold(req,res){
 try{
 const {id}=req.body;
 await query.deleteSold(id);
+
 res.json({status:"success"
 });
 
@@ -277,8 +278,7 @@ async function addShoes(req,res,next){
 
     const {cart_code,shoesId,qty}= req.body;
 
-    console.log(shoesId);
-    console.log(qty);
+    
 try{
 
     let result=[];
@@ -312,6 +312,30 @@ item:item});
 }
 
 
+async function removeItem(req,res){
+
+    const {cart_code,shoesId}= req.body;
+
+    try{
+
+        let result= await query.removeItem(shoesId,cart_code);  
+    
+       res.json({status:"success",
+       items:result,
+    item:item});
+    
+    
+    }catch(err){
+    
+        res.json({status:"error",
+        error:err.stack,
+        message:result});
+    
+     }
+
+}
+
+
 return{
 
 getAll,
@@ -327,7 +351,8 @@ getSizeColor,
 createCart,
 addToCart,
 clearCart,
-getCartItems
+getCartItems,
+removeItem
 
 }
 

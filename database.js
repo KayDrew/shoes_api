@@ -224,13 +224,52 @@ async function updateCart(shoesId,cart_code){
 
 
 
+
 }
 
-async function getCartItems(){
+
+async function removeItem(shoesId,cart_code){
 
         try{
 
-            
+                let quantity= await db.oneOrNone("SELECT qty FROM cart_items WHERE id=$1",shoesId);
+               let qty=quantity.qty-1;
+               
+               if(qty>0){
+
+                await db.none("UPDATE cart_items SET qty=$1 WHERE id=$2",[qty,shoesId]);
+                
+                console.log("updated");
+
+               }
+
+
+               else{
+
+                await db.none("DELETE FROM cart_items WHERE id=$1",shoesId);
+
+                console.log("deleted");
+               }
+
+
+                let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,cart_items.id FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_items.cart_code=$1",cart_code);
+        
+                  return result;
+                
+
+                }catch(err){
+                
+                console.log(err);
+                return err.stack;
+                } 
+
+
+
+}
+
+         async function getCartItems(){
+
+             try{
 
                 let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,cart_items.id FROM cart_items JOIN shoes on cart_items.id=shoes.id");
         
@@ -245,7 +284,7 @@ async function getCartItems(){
 
         }
 
-async function getItem(shoesId){
+      async function getItem(shoesId){
         try{
                 let shoes=await db.manyOrNone("SELECT * FROM cart_items WHERE id=$1",shoesId);
                 return shoes;
@@ -256,6 +295,8 @@ async function getItem(shoesId){
        }
 
 }
+
+
 
 return{
 	addShoes,
@@ -275,7 +316,8 @@ return{
         clearCart,
         updateCart,
         getItem,
-        getCartItems
+        getCartItems,
+        removeItem
 
 
 }
