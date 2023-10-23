@@ -40,7 +40,7 @@ const query= dbQueries(db);
 const service= services(query);
 const shoesApi= api(query);
 
-app.get("/", service.showAll);
+app.get("/", service.getCartItems);
 
 
 app.get("/api/shoes", shoesApi.getAll);

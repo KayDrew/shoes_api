@@ -55,9 +55,9 @@ async function getSize(req,res,next){
 
 }
 
-async function clearCart(){
+async function getCartItems(){
 
-       await query.clearCart();
+       await query.getCartItems();
     }
 
 return{
@@ -65,7 +65,7 @@ showAll,
 getAll,
 getBrand,
 getSize,
-clearCart
+getCartItems
 
 }
 
