@@ -334,7 +334,7 @@ async function removeItem(req,res){
         let result= await query.removeItem(shoesId,cart_code);  
     
        res.json({status:"success",
-    message:result});
+    items:result});
     
     
     }catch(err){

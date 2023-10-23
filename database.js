@@ -213,7 +213,7 @@ async function updateCart(shoesId,cart_code){
 
                 await db.none("UPDATE cart_items SET qty=$1 WHERE id=$2",[qty,shoesId]);
 
-                console.log("updated");
+                
 
                 let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,cart_items.id FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_items.cart_code=$1",cart_code);
         
@@ -243,7 +243,6 @@ async function removeItem(shoesId,cart_code){
 
                 await db.none("UPDATE cart_items SET qty=$1 WHERE id=$2",[qty,shoesId]);
 
-                return "reduced item quantity";
 
                }
 
@@ -252,10 +251,13 @@ async function removeItem(shoesId,cart_code){
 
                 await db.none("DELETE FROM cart_items WHERE id=$1",shoesId);
 
-                return "Removed item";
+                
                }
 
                 
+               let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,cart_items.id FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_items.cart_code=$1",cart_code);
+        
+               return result;
 
                 }catch(err){
                 
