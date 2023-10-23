@@ -211,7 +211,7 @@ async function updateCart(shoesId,cart_code){
 
                 console.log("updated");
 
-                let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_items.cart_code=$1",cart_code);
+                let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,cart_items.id FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_items.cart_code=$1",cart_code);
         
                   return result;
                 
