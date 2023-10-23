@@ -270,7 +270,7 @@ async function addShoes(req,res,next){
  }
 
 
- async function pay(){
+ async function pay(req,res){
 
     try{
 
@@ -278,7 +278,7 @@ async function addShoes(req,res,next){
 
    res.json({ status: "success",
    message:result
-})
+});
     }catch(err){
                res.json({ status: "error",
         error:  err.stack,
