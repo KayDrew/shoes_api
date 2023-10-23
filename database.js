@@ -187,14 +187,16 @@ console.log(err);
 }
 }
 
-async function clearCart(){
+async function pay(){
         try{
 
                 await db.none("DELETE FROM cart_items");
-                console.log("deleted");
+
+                return "Payment successful!";
                 }catch(err){
                 
                 console.log(err);
+                return "Payment not processed";
                 }      
 }
 
@@ -313,7 +315,7 @@ return{
         getCartCode,
         allCarts,
         addToCart,
-        clearCart,
+        pay,
         updateCart,
         getItem,
         getCartItems,

@@ -262,6 +262,7 @@ async function addShoes(req,res,next){
     res.json({cart_code});
 
     }catch(err){
+
         res.json({ status: "error",
         error:  err.stack
 });
@@ -269,9 +270,21 @@ async function addShoes(req,res,next){
  }
 
 
- async function clearCart(){
+ async function pay(){
 
-    await query.clearCart();
+    try{
+
+   let result= await query.pay();
+
+   res.json({ status: "success",
+   message:result
+})
+    }catch(err){
+               res.json({ status: "error",
+        error:  err.stack,
+        message:result
+})
+    }
  }
  
  async function addToCart(req,res){
@@ -350,7 +363,7 @@ getBrandSizeColor,
 getSizeColor,
 createCart,
 addToCart,
-clearCart,
+pay,
 getCartItems,
 removeItem
 

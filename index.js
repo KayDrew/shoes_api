@@ -56,7 +56,7 @@ app.post("/api/shoes", shoesApi.addShoes);
 app.get('/api/shoes/create',shoesApi.createCart);
 app.post("/api/shoes/addToCart",shoesApi.addToCart);
 app.get('/api/shoes/cartItems',shoesApi.getCartItems);
-app.post("/api/shoes/clear",shoesApi.clearCart);
+app.post("/api/shoes/pay",shoesApi.pay);
 app.post("/api/shoes/removeItem",shoesApi.removeItem);
 
 
