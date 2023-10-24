@@ -299,6 +299,37 @@ async function removeItem(shoesId,cart_code){
 }
 
 
+async function pastOrders(shoesId){
+
+
+        try{
+
+             await db.none("INSERT INTO past_orders(i) VALUES $1",shoesId);
+
+            return "Recorded successfully";
+
+        }catch(err){
+
+                return err.stack
+        }
+}
+
+
+async function getOrders(shoesId){
+
+        try{
+
+let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,past_orders.order_date FROM past_orders JOIN shoes on past_orders.id=shoes.id WHERE past_orders.id=$1",shoesId);
+
+return result;
+
+}catch(err){
+
+        return err.stack
+}    
+
+}
+
 
 return{
 	addShoes,
@@ -319,7 +350,9 @@ return{
         updateCart,
         getItem,
         getCartItems,
-        removeItem
+        removeItem,
+        pastOrders,
+        getOrders
 
 
 }

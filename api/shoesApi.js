@@ -348,6 +348,31 @@ async function removeItem(req,res){
 }
 
 
+async function pastOrders(req,res){
+
+    const {shoesId}= req.body;
+
+    try{
+
+        let result= await query.pastOrders(shoesId);  
+    
+       res.json({status:"success",
+    message:result});
+    
+    
+    }catch(err){
+    
+        res.json({status:"error",
+        error:err.stack,
+        message:result});
+    
+     }
+
+}
+
+
+
+
 return{
 
 getAll,
@@ -364,7 +389,8 @@ createCart,
 addToCart,
 pay,
 getCartItems,
-removeItem
+removeItem,
+pastOrders
 
 }
 
