@@ -320,7 +320,7 @@ async function getOrders(){
 
         try{
 
-let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,past_orders.order_date FROM past_orders JOIN shoes ON past_orders.id=shoes.id");
+let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,past_orders.order_day FROM past_orders JOIN shoes ON past_orders.id=shoes.id");
 
 return result;
 
