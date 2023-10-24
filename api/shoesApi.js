@@ -371,6 +371,28 @@ async function pastOrders(req,res){
 }
 
 
+async function getOrders(req,res){
+
+
+
+    try{
+
+        let result= await query.getOrders();  
+    
+       res.json({status:"success",
+    items:result});
+    
+    
+    }catch(err){
+    
+        res.json({status:"error",
+        error:err.stack,
+        message:result});
+    
+     }
+
+}
+
 
 
 return{
@@ -390,7 +412,8 @@ addToCart,
 pay,
 getCartItems,
 removeItem,
-pastOrders
+pastOrders,
+getOrders
 
 }
 

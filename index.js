@@ -59,6 +59,8 @@ app.get('/api/shoes/cartItems',shoesApi.getCartItems);
 app.post("/api/shoes/pay",shoesApi.pay);
 app.post("/api/shoes/removeItem",shoesApi.removeItem);
 app.post("/api/shoes/history",shoesApi.pastOrders);
+app.get("/api/shoes/showHistory", shoesApi.getOrders);
+
 
 
 const PORT= process.env.PORT||5432;
