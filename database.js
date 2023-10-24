@@ -304,7 +304,7 @@ async function pastOrders(shoesId){
 
         try{
 
-             await db.none("INSERT INTO past_orders(id) VALUES $1",shoesId);
+             await db.none("INSERT INTO past_orders(id,order_day) VALUES ($1,DEFAULT)",shoesId);
 
             return "Recorded successfully";
 
