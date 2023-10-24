@@ -304,13 +304,14 @@ async function pastOrders(shoesId){
 
         try{
 
-             await db.none("INSERT INTO past_orders(i) VALUES $1",shoesId);
+             await db.none("INSERT INTO past_orders(id) VALUES $1",shoesId);
 
             return "Recorded successfully";
 
         }catch(err){
-
+                console.log(err);
                 return err.stack
+              
         }
 }
 
