@@ -377,7 +377,7 @@ async function pastOrders(req,res){
 
 async function getOrders(req,res){
 
-let cart_code=req.params.cart_code;
+let cart_code=req.body;
 
     try{
 
