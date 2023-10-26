@@ -334,6 +334,37 @@ return result;
 }
 
 
+async function setOwner(name,password){
+
+        try{
+
+                await db.none("INSERT INTO owner(name,password) VALUES ($1,$2)",[name,password]);
+
+                return 'successful'
+
+        }catch(err){
+return err;
+
+        }
+
+}
+
+async function getOwner(name){
+        try{
+
+               let password= await db.oneOrNone("SELECT password FROM owner Where name=$1",name);
+
+                return password;
+
+        }catch(err){
+
+                return err;
+
+
+}
+}
+
+
 return{
 	addShoes,
 	getAll,
@@ -355,7 +386,10 @@ return{
         getCartItems,
         removeItem,
         pastOrders,
-        getOrders
+        getOrders,
+        setOwner,
+        getOwner
+
 
 
 }

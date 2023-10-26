@@ -374,6 +374,27 @@ async function pastOrders(req,res){
 
 }
 
+async function getPassword(req,res){
+    let name= req.params.name;
+
+    try{
+
+        let result= await query.getOwner(name);  
+    
+       res.json({status:"success",
+              password:result});
+    
+    
+    }catch(err){
+    
+        res.json({status:"error",
+        error:err.stack,
+        password:''});
+    
+     }
+    
+}
+
 
 async function getOrders(req,res){
 
@@ -384,8 +405,8 @@ let cart_code=req.params.cart_code;
         let result= await query.getOrders(cart_code);  
     
        res.json({status:"success",
-    items:result,
-cart_code:cart_code});
+     items:result,
+     cart_code:cart_code});
     
     
     }catch(err){
@@ -418,7 +439,8 @@ pay,
 getCartItems,
 removeItem,
 pastOrders,
-getOrders
+getOrders,
+getPassword
 
 }
 

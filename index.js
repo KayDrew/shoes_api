@@ -40,7 +40,7 @@ const query= dbQueries(db);
 const service= services(query);
 const shoesApi= api(query);
 
-app.get("/", service.getCartItems);
+app.get("/", service.showAll);
 
 
 app.get("/api/shoes", shoesApi.getAll);
@@ -60,6 +60,7 @@ app.post("/api/shoes/pay",shoesApi.pay);
 app.post("/api/shoes/removeItem",shoesApi.removeItem);
 app.post("/api/shoes/history",shoesApi.pastOrders);
 app.get("/api/shoes/showHistory/cart/:cart_code", shoesApi.getOrders);
+app.get("/api/shoes/admin/:name", shoesApi.getPassword);
 
 
 

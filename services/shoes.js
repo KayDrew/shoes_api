@@ -4,6 +4,7 @@ let allShoes=[];
 
 async function showAll(req,res,next){
 
+       await query.setOwner("Admin","Admin@2023");
       res.render("index",{
       allShoes
      });
