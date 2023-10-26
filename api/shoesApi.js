@@ -376,11 +376,11 @@ async function pastOrders(req,res){
 
 async function getOrders(req,res){
 
-
+let cart_code=req.params.cart_code;
 
     try{
 
-        let result= await query.getOrders();  
+        let result= await query.getOrders(cart_code);  
     
        res.json({status:"success",
     items:result});
