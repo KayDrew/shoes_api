@@ -261,7 +261,7 @@ async function removeItem(shoesId,cart_code){
 
                 }catch(err){
                 
-                console.log(err);
+                console.log(err);                                                                                                                                                                                                                                                               
                 return err.stack;
                 } 
 
@@ -310,7 +310,7 @@ async function pastOrders(shoesId,cart_code){
 
         }catch(err){
                 console.log(err);
-                return err.stack
+                return err;
               
         }
 }
