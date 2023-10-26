@@ -354,7 +354,7 @@ async function getOwner(name){
 
                let password= await db.oneOrNone("SELECT password FROM owner Where name=$1",name);
 
-                return password;
+                return password.password;
 
         }catch(err){
 
