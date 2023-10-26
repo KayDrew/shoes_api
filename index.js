@@ -59,7 +59,7 @@ app.get('/api/shoes/cartItems',shoesApi.getCartItems);
 app.post("/api/shoes/pay",shoesApi.pay);
 app.post("/api/shoes/removeItem",shoesApi.removeItem);
 app.post("/api/shoes/history",shoesApi.pastOrders);
-app.post("/api/shoes/showHistory", shoesApi.getOrders);
+app.get("/api/shoes/showHistory/cart/:cart_code", shoesApi.getOrders);
 
 
 
