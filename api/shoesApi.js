@@ -254,7 +254,7 @@ async function addShoes(req,res,next){
         
     let cart_code=await query.getCartCode(username);
 
-    if(!isNumber(cart_code)){
+    if(!isInteger(cart_code)){
 
    await query.createCart(username);
    cart_code=await query.getCartCode(username);
