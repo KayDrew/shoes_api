@@ -384,7 +384,8 @@ let cart_code=req.params.cart_code;
         let result= await query.getOrders(cart_code);  
     
        res.json({status:"success",
-    items:result});
+    items:result,
+cart_code:cart_code});
     
     
     }catch(err){
