@@ -322,12 +322,9 @@ async function getOrders(cart_code){
 
 let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,past_orders.order_day,past_orders.cart_code FROM past_orders JOIN shoes ON past_orders.id=shoes.id WHERE past_orders.cart_code=$1",cart_code);
 
-if(result.length>0){
-return result;}
 
-else{
-        return cart_code+' not in orders';
-}
+return result.length;
+
 
 }catch(err){
 
