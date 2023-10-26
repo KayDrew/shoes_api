@@ -328,7 +328,7 @@ return result;
 
 }catch(err){
 
-        return err.stack
+        return cart_code, err.stack
 }    
 
 }
