@@ -267,7 +267,8 @@ async function addShoes(req,res,next){
     }catch(err){
 
         res.json({ status: "error",
-        error:  err.stack
+        error:  err.stack,
+       
 });
     }
  }

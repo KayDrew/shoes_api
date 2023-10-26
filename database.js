@@ -23,6 +23,7 @@ export default function dbQueries(db){
           return result.cart_code;
         }catch(err){
                 console.log(err);
+                return "no cart code"
         }
            }
 
