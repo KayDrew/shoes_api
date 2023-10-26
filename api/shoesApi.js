@@ -353,11 +353,11 @@ async function removeItem(req,res){
 
 async function pastOrders(req,res){
 
-    const {shoesId}= req.body;
+    const {shoesId,cart_code}= req.body;
 
     try{
 
-        let result= await query.pastOrders(shoesId);  
+        let result= await query.pastOrders(shoesId,cart_code);  
     
        res.json({status:"success",
     message:result});
