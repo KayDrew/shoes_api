@@ -299,12 +299,12 @@ async function removeItem(shoesId,cart_code){
 }
 
 
-async function pastOrders(shoesId){
+async function pastOrders(shoesId,cart_code){
 
 
         try{
 
-             await db.none("INSERT INTO past_orders(id,order_day) VALUES ($1,DEFAULT)",shoesId);
+             await db.none("INSERT INTO past_orders(id,order_day) VALUES ($1,DEFAULT,$2)",[shoesId,cart_code]);
 
             return "Recorded successfully";
 
