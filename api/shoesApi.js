@@ -248,7 +248,6 @@ async function addShoes(req,res,next){
 
     let username=req.query.username? req.query.username:'';
     
-    let password=req.query.password? req.query.password:'';
 
     try{
 
@@ -257,7 +256,7 @@ async function addShoes(req,res,next){
 
     if(!cart_code){
 
-   await query.createCart(username,password);
+   await query.createCart(username);
    cart_code=await query.getCartCode(username);
     }
 
