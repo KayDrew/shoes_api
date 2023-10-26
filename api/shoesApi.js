@@ -261,7 +261,8 @@ async function addShoes(req,res,next){
     }
 
 
-    res.json({cart_code});
+    res.json({cart_code,
+    message:"Created cart for "+username});
 
     }catch(err){
 
