@@ -185,11 +185,11 @@ try{
 const {id}=req.body;
 let result=await query.deleteSold(id);
 
-res.json({status:result
+res.json({message:result
 });
 
 }catch(err){
-    res.json({ status: result,
+    res.json({ message: result,
                             error:  err.stack
           });
 }
