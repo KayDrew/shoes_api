@@ -181,10 +181,10 @@ try{
 
 
         let quantity= await db.oneOrNone("SELECT in_stock FROM shoes WHERE id=$1",shoesId);
-        let qty=quantity.qty-1;
+        let in_stock=quantity.in_stock-1;
         
 
-         await db.none("UPDATE shoes SET in_stock=$1 WHERE id=$2",[qty,shoesId]);
+         await db.none("UPDATE shoes SET in_stock=$1 WHERE id=$2",[in_stock,shoesId]);
 
 return "deleted";
 }catch(err){
