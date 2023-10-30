@@ -180,11 +180,11 @@ async function deleteSold(shoesId){
 try{
 
 
-        let quantity= await db.oneOrNone("SELECT qty FROM shoes WHERE id=$1",shoesId);
+        let quantity= await db.oneOrNone("SELECT in_stock FROM shoes WHERE id=$1",shoesId);
         let qty=quantity.qty-1;
         
 
-         await db.none("UPDATE shoes SET qty=$1 WHERE id=$2",[qty,shoesId]);
+         await db.none("UPDATE shoes SET in_stock=$1 WHERE id=$2",[qty,shoesId]);
 
 return "deleted";
 }catch(err){
