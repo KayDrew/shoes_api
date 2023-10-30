@@ -180,10 +180,9 @@ async function deleteSold(id){
 try{
 
 await db.none("DELETE FROM shoes WHERE id=$1",id);
-console.log("deleted");
+return "deleted"
 }catch(err){
-
-console.log(err);
+return err;
 }
 }
 

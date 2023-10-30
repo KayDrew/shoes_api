@@ -183,13 +183,13 @@ async function deleteSold(req,res){
 
 try{
 const {id}=req.body;
-await query.deleteSold(id);
+let result=await query.deleteSold(id);
 
-res.json({status:"success"
+res.json({status:result
 });
 
 }catch(err){
-    res.json({ status: "error",
+    res.json({ status: result,
                             error:  err.stack
           });
 }
