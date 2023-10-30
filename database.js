@@ -14,6 +14,9 @@ export default function dbQueries(db){
            }
 
 
+         
+
+
            async function getCartCode(username){
 
         try{
@@ -191,6 +194,24 @@ return "deleted";
 return err;
 }
 }
+
+
+
+async function resetAll(cart_code){
+        try{
+
+                await db.none("DELETE FROM cart_items");
+        
+                return "Successfully deleted!"
+
+           
+                }catch(err){
+                
+                console.log(err);
+                return err
+                }      
+}
+
 
 async function pay(){
         try{
@@ -389,6 +410,7 @@ return{
         updateCart,
         getItem,
         getCartItems,
+        resetAll,
         removeItem,
         pastOrders,
         getOrders,
