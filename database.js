@@ -175,11 +175,16 @@ async function getColor(color){
 
 
 
-async function deleteSold(id){
+async function deleteSold(shoesId){
 
 try{
 
-await db.none("DELETE FROM shoes WHERE id=$1",id);
+
+        let quantity= await db.oneOrNone("SELECT qty FROM shoes WHERE id=$1",shoesId);
+        let qty=quantity.qty-1;
+        
+
+         await db.none("UPDATE shoes SET qty=$1 WHERE id=$2",[qty,shoesId]);
 
 return "deleted";
 }catch(err){
