@@ -38,7 +38,7 @@ ssl: true
 
 const query= dbQueries(db);
 const service= services(query);
-const shoesApi= api(query,db);
+const shoesApi= api(query);
 
 app.get("/", service.showAll);
 
