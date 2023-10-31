@@ -8,10 +8,9 @@ async function getAll(req,res){
 
   try{
 
-    
-    let shoes=await db.manyOrNone("SELECT * FROM shoes");
+           allShoes=await query.getAll();
            res.json({status: "success",
-           shoes: shoes
+           shoes: allShoes
             });
            
 
