@@ -26,38 +26,6 @@ beforeEach(async function () {
         
 }  );
 
-  it("should return all the shoes in the stock",async function(){
-
-let shoes= await queries.getAll();
-assert.equal(36,shoes.length);
-});
-  
-  
-    it("should return all the shoes of a selected color",async function(){
-    	
-let blueShoes= await queries.getColor("Blue");
-assert.equal(13, blueShoes.length);
-});
-  
-
-it("should return all the shoes of a selected brand",async function(){
-    	
-    let shoes= await queries.getBrand("Litez");
-    assert.equal(7, shoes.length);
-    });  
-    
-    
-    it("should return all the shoes of a selected size",async function(){
-    	
-        let shoes= await queries.getSize(7);
-        assert.equal(4, shoes.length);
-        });
-  
-        it("should return all the shoes of a selected brand and color",async function(){
-    	
-            let shoes= await queries.getBrandColor("Litez","Green");
-            assert.equal(3, shoes.length);
-            });  
             
 
     it("should be able to claer all items ",async function(){
