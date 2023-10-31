@@ -8,7 +8,7 @@ async function getAll(req,res){
 
   try{
 
-           allShoes= await query.getAll();
+           allShoes= query.getAll();
            res.json({status: "success",
            shoes: allShoes
             });
@@ -29,7 +29,7 @@ async function getBrand(req,res){
     let brand= req.params.brandname;
     try{
     	
-            allShoes= await query.getBrand(brand);
+            allShoes= query.getBrand(brand);
             res.json({status: "success",
            shoes: allShoes
             });
@@ -50,7 +50,7 @@ async function getSize(req,res){
     let size= req.params.size;
     try{
     	
-            allShoes= await query.getSize(size);
+            allShoes= query.getSize(size);
             res.json({status: "success",
            shoes: allShoes
             });
@@ -71,7 +71,7 @@ async function getBrandSize(req,res){
 
     try{
     	
-            allShoes= await query.getBrandSize(brand,size);
+            allShoes= query.getBrandSize(brand,size);
             res.json({status: "success",
                              shoes: allShoes 
 
@@ -96,7 +96,7 @@ async function getBrandSizeColor(req,res){
 
     try{
     	
-            allShoes= await query.getBrandSizeColor(brand,size,color);
+            allShoes= query.getBrandSizeColor(brand,size,color);
             
             res.json({status: "success",
                              shoes: allShoes 
@@ -120,7 +120,7 @@ async function getBrandColor(req,res){
 
     try{
     	
-            allShoes= await query.getBrandColor(brand,color);
+            allShoes= query.getBrandColor(brand,color);
       
             res.json({status: "success",
                              shoes: allShoes 
@@ -142,7 +142,7 @@ async function getColor(req,res){
 
     try{
 
-        allShoes= await query.getColor(color);
+        allShoes= query.getColor(color);
         res.json({status: "success",
                          shoes: allShoes 
 
@@ -163,7 +163,7 @@ async function getSizeColor(req,res){
     let color=req.params.color;
     try{
     	
-            allShoes= await query.getSizeColor(size,color);
+            allShoes= query.getSizeColor(size,color);
             res.json({status: "success",
            shoes: allShoes
             });
@@ -183,7 +183,7 @@ async function deleteSold(req,res){
 
 try{
 const {id}=req.body;
-let result=await query.deleteSold(id);
+let result=query.deleteSold(id);
 
 res.json({message:result
 });
@@ -201,7 +201,7 @@ async function getCartItems(req,res){
 
 
     try{
-  let items=  await query.getCartItems();
+  let items=  query.getCartItems();
 
     res.json({status:"success",items:items
 
@@ -225,7 +225,7 @@ async function addShoes(req,res,next){
 	
 		    const {color,brand, price, size, in_stock,image}=req.body;
 	       
-                   let result= await query.addShoes(color,brand,price,size,in_stock,image);
+                   let result= query.addShoes(color,brand,price,size,in_stock,image);
 		              
 			      res.json({status:"success",
                                      message:result 
@@ -252,12 +252,12 @@ async function addShoes(req,res,next){
     try{
 
         
-    let cart_code=await query.getCartCode(username);
+    let cart_code=query.getCartCode(username);
 
     if(!cart_code){
 
    await query.createCart(username);
-   cart_code=await query.getCartCode(username);
+   cart_code=query.getCartCode(username);
     }
 
 
@@ -278,7 +278,7 @@ async function addShoes(req,res,next){
 
     try{
 
-   let result= await query.pay();
+   let result= query.pay();
 
    res.json({ status: "success",
    message:result
@@ -299,18 +299,18 @@ async function addShoes(req,res,next){
 try{
 
     let result=[];
-    let item= await query.getItem(shoesId);
+    let item= query.getItem(shoesId);
     
     if(item.length<1){
 
 
-    result= await query.addToCart(cart_code,shoesId,qty);
+    result= query.addToCart(cart_code,shoesId,qty);
 
    }
 
   else{
         
-        result=await query.updateCart(shoesId,cart_code);
+        result=query.updateCart(shoesId,cart_code);
    }
 
    res.json({status:"success",
@@ -335,7 +335,7 @@ async function removeItem(req,res){
 
     try{
 
-        let result= await query.removeItem(shoesId,cart_code);  
+        let result= query.removeItem(shoesId,cart_code);  
     
        res.json({status:"success",
     items:result});
@@ -358,7 +358,7 @@ async function pastOrders(req,res){
 
     try{
 
-        let result= await query.pastOrders(shoesId,cart_code);  
+        let result=  query.pastOrders(shoesId,cart_code);  
     
        res.json({status:"success",
     message:result});
@@ -379,7 +379,7 @@ async function getPassword(req,res){
 
     try{
 
-        let result= await query.getOwner(name);  
+        let result= query.getOwner(name);  
     
        res.json({status:"success",
               password:result});
@@ -402,7 +402,7 @@ let cart_code=req.params.cart_code;
 
     try{
 
-        let result= await query.getOrders(cart_code);  
+        let result= query.getOrders(cart_code);  
     
        res.json({status:"success",
      items:result,
