@@ -8,6 +8,7 @@ import pkg from 'pg-promise';
 import dbQueries from './database.js';
 import services from './services/shoes.js';
 import api from './api/shoesApi.js';
+import route from './routes/route.js';
 import cors from 'cors';
 
 const app = express();
@@ -39,11 +40,12 @@ ssl: true
 const query= dbQueries(db);
 const service= services(query);
 const shoesApi= api(query);
+const routeAPI= route(db);
 
 app.get("/", service.showAll);
 
 
-app.get("/api/shoes", shoesApi.getAll);
+app.get("/api/shoes", routeAPI.getAll);
 app.get("/api/shoes/brand/:brandname", shoesApi.getBrand);
 app.get("/api/shoes/size/:size", shoesApi.getSize);
 app.get("/api/shoes/color/:color",shoesApi.getColor);
