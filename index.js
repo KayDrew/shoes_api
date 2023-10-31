@@ -45,7 +45,7 @@ const routeAPI= route(db);
 app.get("/", service.showAll);
 
 
-app.get("/api/shoes", routeAPI.getAll);
+app.get("/api/shoes", shoesApi.getAll);
 app.get("/api/shoes/brand/:brandname", shoesApi.getBrand);
 app.get("/api/shoes/size/:size", shoesApi.getSize);
 app.get("/api/shoes/color/:color",shoesApi.getColor);
