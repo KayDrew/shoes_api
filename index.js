@@ -9,6 +9,7 @@ import dbQueries from './database.js';
 import services from './services/shoes.js';
 import api from './api/shoesApi.js';
 import cors from 'cors';
+import allShoes from "./api/allShoes.js"
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,7 @@ app.set('view engine', 'handlebars');
 app.set('views', './views');
 app.use(express.static('public'));
 app.use(express.static('images'));
+
 
 
 app.use(cors());
@@ -37,6 +39,7 @@ ssl: true
 });
 
 const query= dbQueries(db);
+const getAllShoes= allShoes(db);
 const service= services(query);
 const shoesApi= api(query);
 
@@ -44,7 +47,7 @@ const shoesApi= api(query);
 app.get("/", service.showAll);
 
 
-app.get("/api/shoes", shoesApi.getAll);
+app.get("/api/shoes", getAllShoes.getAll);
 app.get("/api/shoes/brand/:brandname", shoesApi.getBrand);
 app.get("/api/shoes/size/:size", shoesApi.getSize);
 app.get("/api/shoes/color/:color",shoesApi.getColor);
