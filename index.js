@@ -32,7 +32,7 @@ app.use(session({
 }));
 app.use(flash());
 
-const connectionString=process.env.URL;r
+const connectionString=process.env.URL;
 const Pool= pkg();
 const db=Pool ({connectionString ,
 ssl: true 
