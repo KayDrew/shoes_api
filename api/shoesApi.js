@@ -216,7 +216,7 @@ let cart_code=req.params.cart_code;
     }
 
 
-    async function updateStock(){
+    async function updateStock(req,res){
 
         const {qty,price,shoesId}=req.body;
 
