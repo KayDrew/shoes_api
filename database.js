@@ -73,6 +73,21 @@ async function  addShoes(color,brand,price,size,in_stock,image){
       }
 }
 
+async function updateStock(qty,price,shoesId){
+
+    try{
+
+              await db.none("UPDATE shoes SET in_stock=$1,price=$2 WHERE id=$3",[qty,price,shoesId])
+                
+	    return "Successfully  updated stock";
+         }catch(err){
+	
+                
+	    return err;
+
+      }
+
+}
 
 async function  getAll(){
 
@@ -415,7 +430,8 @@ return{
         pastOrders,
         getOrders,
         setOwner,
-        getOwner
+        getOwner,
+        updateStock
 
 
 

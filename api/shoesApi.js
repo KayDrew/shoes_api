@@ -216,6 +216,26 @@ let cart_code=req.params.cart_code;
     }
 
 
+    async function updateStock(){
+
+        const {qty,price,shoesId}=req.body;
+
+    try{
+
+  let message=await query.updateStock(qty,price,shoesId);
+
+    res.json({message:message
+
+    });
+    
+    }catch(err){
+        res.json({ 
+                 message:err.stack
+              });
+    }
+
+    }
+
 async function addShoes(req,res,next){
 
 	
@@ -440,7 +460,8 @@ getCartItems,
 removeItem,
 pastOrders,
 getOrders,
-getPassword
+getPassword,
+updateStock
 
 }
 
