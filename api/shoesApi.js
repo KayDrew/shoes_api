@@ -198,7 +198,7 @@ res.json({message:result
 
 async function getCartItems(req,res){
 
-
+let cart_code=req.params.cart_code;
 
     try{
   let items=await query.getCartItems();

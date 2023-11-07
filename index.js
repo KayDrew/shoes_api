@@ -32,7 +32,7 @@ app.use(session({
 }));
 app.use(flash());
 
-const connectionString=process.env.URL;
+const connectionString=process.env.URL;r
 const Pool= pkg();
 const db=Pool ({connectionString ,
 ssl: true 
@@ -59,7 +59,7 @@ app.post("/api/shoes/sold", shoesApi.deleteSold);
 app.post("/api/shoes", shoesApi.addShoes);
 app.get('/api/shoes/create',shoesApi.createCart);
 app.post("/api/shoes/addToCart",shoesApi.addToCart);
-app.get('/api/shoes/cartItems',shoesApi.getCartItems);
+app.get('/api/shoes/cartItems/cart/:cart_code',shoesApi.getCartItems);
 app.post("/api/shoes/pay",shoesApi.pay);
 app.post("/api/shoes/removeItem",shoesApi.removeItem);
 app.post("/api/shoes/history",shoesApi.pastOrders);

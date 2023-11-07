@@ -295,11 +295,11 @@ async function removeItem(shoesId,cart_code){
 
 }
 
-         async function getCartItems(){
+         async function getCartItems(cart_code){
 
              try{
 
-                let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,cart_items.id FROM cart_items JOIN shoes on cart_items.id=shoes.id");
+                let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image, cart_items.qty,cart_items.id FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_code=$1",cart_code);
         
                   return result;
                 
