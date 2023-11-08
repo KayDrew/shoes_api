@@ -34,7 +34,7 @@ export default function dbQueries(db){
                 try{
                       await db.none("INSERT INTO cart_items(cart_code,id,qty) VALUES($1,$2,$3)",[cart_code,shoesId,qty]);
 
-                      let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_code=$1",cart_code);
+                 let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,cart_items.cart_code FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_code=$1",cart_code);
         
                         return result;
         
