@@ -330,7 +330,7 @@ try{
 
   else{
         
-        result=await query.updateCart(shoesId,cart_code);
+        result="exits";
    }
 
    res.json({status:"success",
