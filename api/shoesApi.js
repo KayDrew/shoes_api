@@ -313,7 +313,7 @@ async function addShoes(req,res,next){
  
  async function addToCart(req,res){
 
-    const {cart_code,shoesId,qty}= req.body;
+    let {cart_code,shoesId,qty}= req.body;
 
     
 try{
