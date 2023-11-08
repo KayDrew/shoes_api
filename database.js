@@ -327,9 +327,9 @@ async function removeItem(shoesId,cart_code){
 
         }
 
-      async function getItem(cart_code){
+      async function getItem(cart_code,shoesId){
         try{
-                let shoes=await db.manyOrNone("SELECT * FROM cart_items WHERE cart_code=$1",cart_code);
+                let shoes=await db.manyOrNone("SELECT * FROM cart_items WHERE cart_code=$1 AND id=$2",[cart_code,shoesId]);
                 return shoes;
               
         }catch(err){
