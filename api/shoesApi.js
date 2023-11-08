@@ -314,11 +314,11 @@ export default function  shoesApi(query){
      async function addToCart(req,res){
     
         const {cart_code,shoesId,qty}= req.body;
-    
+        let result=[];
         
     try{
     
-        let result=[];
+       
         let item=await  query.getItem(cart_code);
         
         if(item.length<1){
