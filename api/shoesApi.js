@@ -319,7 +319,7 @@ async function addShoes(req,res,next){
 try{
 
     let result=[];
-    let item=await  query.getItem(shoesId);
+    let item=await  query.getItem(cart_code,shoesId);
     
     if(item.length<1){
 
