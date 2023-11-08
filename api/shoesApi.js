@@ -213,7 +213,7 @@ let cart_code=req.params.cart_code;
               });
     }
     
-    }s
+    }
 
 
     async function updateStock(req,res){
