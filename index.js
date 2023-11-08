@@ -59,7 +59,7 @@ app.post("/api/shoes/sold", shoesApi.deleteSold);
 app.post("/api/shoes", shoesApi.addShoes);
 app.get('/api/shoes/create',shoesApi.createCart);
 app.post("/api/shoes/addToCart",shoesApi.addToCart);
-app.get('/api/shoes/cartItems/cart/:cart_code',shoesApi.getCartItems);
+app.get('/api/shoes/cartItems/cart/:cart_code',getAllShoes.getItem);
 app.post("/api/shoes/pay",shoesApi.pay);
 app.post("/api/shoes/removeItem",shoesApi.removeItem);
 app.post("/api/shoes/history",shoesApi.pastOrders);
