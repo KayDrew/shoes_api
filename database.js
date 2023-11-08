@@ -329,12 +329,11 @@ async function removeItem(shoesId,cart_code){
 
       async function getItem(cart_code){
         try{
-                let shoes=await db.manyOrNone("SELECT cart_code FROM cart_items WHERE cart_code=$1",cart_code);
+                let shoes=await db.oneOrNone("SELECT cart_code FROM cart_items WHERE cart_code=$1",cart_code);
                 return shoes;
               
         }catch(err){
-                
-               console.log(err);
+                return err;
        }
 
 }
