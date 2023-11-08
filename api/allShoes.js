@@ -36,19 +36,27 @@ async function getItem(cart_code){
 
 async function addToCart(req,res){
 
-    
+    let {cart_code,shoesId,qty}= req.body;
+
     try{
+
+        let item= await getItem(cart_code);
+
+        res.json({status:"success",
+        
+     item:item})
 }catch(err){
   
-    return err;
-}
+    res.json({status:"error",
+    item:err});
 
 }
 
-
+}
     return{
 
         getAll,
-        getItem
+        getItem,
+        addToCart
     }
 }

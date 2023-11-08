@@ -58,7 +58,7 @@ app.get("/api/shoes/size/:size/color/:color",shoesApi.getSizeColor);
 app.post("/api/shoes/sold", shoesApi.deleteSold);
 app.post("/api/shoes", shoesApi.addShoes);
 app.get('/api/shoes/create',shoesApi.createCart);
-app.post("/api/shoes/addToCart",shoesApi.addToCart);
+app.post("/api/shoes/addToCart",getAllShoes.addToCart);
 app.get('/api/shoes/cartItems/cart/:cart_code',shoesApi.getCartItems);
 app.post("/api/shoes/pay",shoesApi.pay);
 app.post("/api/shoes/removeItem",shoesApi.removeItem);
