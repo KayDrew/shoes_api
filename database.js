@@ -252,19 +252,15 @@ async function updateCart(shoesId,cart_code){
                let qty=quantity.qty+1;
                
 
-                await db.none("UPDATE cart_items SET qty=$1 WHERE id=$2",[qty,shoesId]);
+                await db.none("UPDATE cart_items SET qty=$1 WHERE id=$2 AND cart_code=$3",[qty,shoesId,cart_code]);
 
-                
-
-                let result= await db.manyOrNone("SELECT shoes.brand, shoes.color,shoes.price,shoes.image,cart_items.qty,cart_items.id FROM cart_items JOIN shoes on cart_items.id=shoes.id WHERE cart_items.cart_code=$1",cart_code);
-        
-                  return result;
+                return ("succesfully updated");
                 
 
                 }catch(err){
                 
                 console.log(err);
-                return err.stack;
+                return err;
                 } 
 
 
