@@ -358,7 +358,7 @@ export default function  shoesApi(query){
             let result=await  query.removeItem(shoesId,cart_code);  
         
            res.json({status:"success",
-        items:result});
+        message:result});
         
         
         }catch(err){
