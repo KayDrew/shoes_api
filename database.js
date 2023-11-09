@@ -278,7 +278,7 @@ async function removeItem(shoesId,cart_code){
                
                if(qty>0){
 
-                await db.none("UPDATE cart_items SET qty=$1 WHERE id=$2 AND cart_coode=$3",[qty,shoesId,cart_code]);
+                await db.none("UPDATE cart_items SET qty=$1 WHERE id=$2 AND cart_code=$3",[qty,shoesId,cart_code]);
 
 
                }
