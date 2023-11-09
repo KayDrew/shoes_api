@@ -432,7 +432,7 @@ export default function  shoesApi(query){
         }catch(err){
         
             res.json({status:"error",
-            error:err.stack,
+            error:err,
             message:result});
         
          }

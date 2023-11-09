@@ -363,7 +363,7 @@ return result;
 
 }catch(err){
 
-        return cart_code, err.stack
+        return err;
 }    
 
 }
