@@ -273,7 +273,7 @@ async function removeItem(shoesId,cart_code){
 
         try{
 
-                let quantity= await db.oneOrNone("SELECT qty FROM cart_items WHERE id=$1 AND cart_code=$2",shoesId,cart_code);
+                let quantity= await db.oneOrNone("SELECT qty FROM cart_items WHERE id=$1 AND cart_code=$2",[shoesId,cart_code]);
                let qty=quantity.qty-1;
                
                if(qty>0){
