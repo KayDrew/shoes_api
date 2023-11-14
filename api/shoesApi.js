@@ -439,6 +439,29 @@ export default function  shoesApi(query){
     
     }
     
+
+    async function getQuantity(req,res){
+    
+        let shoesId=req.params.shoesId;
+        
+            try{
+        
+                let result=await query.getQuantity(shoesId);  
+            
+               res.json({status:"success",
+             quantity:result
+            });
+            
+            
+            }catch(err){
+            
+                res.json({status:"error",
+                error:err,
+                message:result});
+            
+             }
+        
+        }
     
     
     return{
@@ -461,7 +484,8 @@ export default function  shoesApi(query){
     pastOrders,
     getOrders,
     getPassword,
-    updateStock
+    updateStock,
+    getQuantity
     
     }
     

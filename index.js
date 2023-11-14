@@ -66,6 +66,7 @@ app.post("/api/shoes/history",shoesApi.pastOrders);
 app.get("/api/shoes/showHistory/cart/:cart_code", shoesApi.getOrders);
 app.get("/api/shoes/admin/:name", shoesApi.getPassword);
 app.post("/api/shoes/update",shoesApi.updateStock);
+app.get("/api/shoes/id/:shoesId", shoesApi.getQuantity);
 
 
 const PORT= process.env.PORT||5432;

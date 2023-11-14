@@ -57,6 +57,22 @@ export default function dbQueries(db){
                    }
 
 
+
+                   
+        async function getQuantity(shoesId){
+
+                try{
+   
+                  let id= await db.oneOrNone("SELECT in_stock from shoes WHERE id=$1",shoesId);
+                  return id;
+
+   
+                }  catch(err){
+                   return id;
+                } 
+           }
+
+
 async function  addShoes(color,brand,price,size,in_stock,image){
 
     try{
@@ -424,7 +440,8 @@ return{
         getOrders,
         setOwner,
         getOwner,
-        updateStock
+        updateStock,
+        getQuantity
 
 
 
