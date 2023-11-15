@@ -63,7 +63,7 @@ export default function dbQueries(db){
 
                 try{
    
-                  let result= await db.oneOrNone("SELECT id,qty from cart WHERE id=$1",shoesId);
+                  let result= await db.oneOrNone("SELECT id,qty from cart_items WHERE id=$1",shoesId);
 
                   return result;
 
