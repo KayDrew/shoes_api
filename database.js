@@ -64,14 +64,27 @@ export default function dbQueries(db){
                 try{
    
                   let result= await db.oneOrNone("SELECT id,qty from cart_items WHERE id=$1",shoesId);
+                  
+                  let result2= await db.oneOrNone("SELECT id,in_stock from shoes WHERE id=$1",shoesId);
 
-                  return result;
+                  if(result.qty>=result2.in_stock){
+
+                  return true;
+
+
+                  }
+
+                  else{
+                        return false;
+                  }
 
                 }  catch(err){
                    return err;
                 } 
            }
 
+                           
+   
 
 async function  addShoes(color,brand,price,size,in_stock,image){
 
