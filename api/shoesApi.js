@@ -449,7 +449,7 @@ export default function  shoesApi(query){
                 let result=await query.getQuantity(shoesId);  
             
                res.json({status:"success",
-             quantity:result
+             items:result
             });
             
             

@@ -63,12 +63,12 @@ export default function dbQueries(db){
 
                 try{
    
-                  let id= await db.oneOrNone("SELECT in_stock from shoes WHERE id=$1",shoesId);
-                  return id;
+                  let result= await db.oneOrNone("SELECT id,in_stock from shoes WHERE id=$1",shoesId);
 
-   
+                  return result;
+
                 }  catch(err){
-                   return id;
+                   return err;
                 } 
            }
 
