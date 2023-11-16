@@ -102,11 +102,11 @@ async function  addShoes(color,brand,price,size,in_stock,image){
       }
 }
 
-async function updateStock(qty,price,shoesId){
+async function updateStock(qty,shoesId){
 
     try{
 
-              await db.none("UPDATE shoes SET in_stock=$1,price=$2 WHERE id=$3",[qty,price,shoesId])
+              await db.none("UPDATE shoes SET in_stock=$1 WHERE id=$2",[qty,shoesId])
                 
 	    return "Successfully  updated stock";
          }catch(err){
