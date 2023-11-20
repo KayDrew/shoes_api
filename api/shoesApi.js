@@ -218,11 +218,11 @@ export default function  shoesApi(query){
     
         async function updateStock(req,res){
     
-            const {qty,shoesId}=req.body;
+            const {qty,shoesId,cart_code}=req.body;
     
         try{
     
-      let message=await query.updateStock(qty,shoesId);
+      let message=await query.updateStock(qty,shoesId,cart_code);
     
         res.json({message:message
     
