@@ -218,11 +218,11 @@ export default function  shoesApi(query){
     
         async function updateStock(req,res){
     
-            const {qty,shoesId,cart_code}=req.body;
+            const {qty,shoesId}=req.body;
     
         try{
     
-      let message=await query.updateStock(qty,shoesId,cart_code);
+      let message=await query.updateStock(qty,shoesId);
     
         res.json({message:message
     
@@ -443,10 +443,11 @@ export default function  shoesApi(query){
     async function getQuantity(req,res){
     
         let shoesId=req.params.shoesId;
+        let cart_code=req.params.cart_code;
         
             try{
         
-                let result=await query.getQuantity(shoesId);  
+                let result=await query.getQuantity(shoesId,cart_code);  
             
                res.json({status:"success",
              result:result
