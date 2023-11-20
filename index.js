@@ -70,7 +70,6 @@ app.get("/api/shoes/id/:shoesId", shoesApi.getQuantity);
 
 
 const PORT= process.env.PORT||5432;
-
 app.listen(PORT,function(){
     console.log("App starting on port "+PORT);
 });

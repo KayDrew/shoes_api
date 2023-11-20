@@ -59,11 +59,11 @@ export default function dbQueries(db){
 
 
                    
-        async function getQuantity(shoesId){
+        async function getQuantity(shoesId,cart_code){
 
                 try{
    
-                  let result= await db.oneOrNone("SELECT id,qty from cart_items WHERE id=$1",shoesId);
+                  let result= await db.oneOrNone("SELECT id,qty from cart_items WHERE id=$1 AND cart_code=$2",[shoesId,cart_code]);
                   
                   let result2= await db.oneOrNone("SELECT id,in_stock from shoes WHERE id=$1",shoesId);
 
